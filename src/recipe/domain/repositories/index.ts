@@ -39,6 +39,13 @@ export interface FavoriteRecipeRepository {
 	getFavoriteRecipes(): Promise<Recipe[]>;
 
 	/**
+	 * Retrieves a specific recipe from the favorites collection by its ID
+	 * @param recipeId - The unique identifier of the favorite recipe to retrieve
+	 * @returns Promise containing the favorite recipe details
+	 */
+	getFavoriteRecipe(recipeId: string): Promise<Recipe>;
+
+	/**
 	 * Saves a recipe to the favorites collection
 	 * @param recipe - The recipe object to be added to favorites
 	 * @returns Promise that resolves when the recipe is added

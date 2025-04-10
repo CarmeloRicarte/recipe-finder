@@ -11,6 +11,15 @@ export class LocalStorageFavoriteRecipeRepository
 		return favorites ? JSON.parse(favorites) : [];
 	}
 
+	async getFavoriteRecipe(recipeId: string): Promise<Recipe> {
+		const favorites = this.getFavorites();
+		const favorite = favorites.find((f) => f.id === recipeId);
+		if (!favorite) {
+			throw new Error("Recipe not found");
+		}
+		return Promise.resolve(favorite);
+	}
+
 	async getFavoriteRecipes(): Promise<Recipe[]> {
 		return this.getFavorites();
 	}

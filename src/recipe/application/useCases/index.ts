@@ -6,6 +6,7 @@
 import { localStorageFavoriteRecipeRepository } from "../../infrastructure/repositories/localStorageFavoriteRecipeRepository";
 import { spoonacularRecipeRepository } from "../../infrastructure/repositories/spoonacularRecipeRepository";
 import { AddFavoriteRecipeUseCase } from "./AddFavoriteRecipeUseCase";
+import { GetFavoriteRecipeUseCase } from "./GetFavoriteRecipeUseCase";
 import { GetFavoriteRecipesUseCase } from "./GetFavoriteRecipesUseCase";
 import { GetRandomRecipesUseCase } from "./GetRandomRecipesUseCase";
 import { GetRecipeDetailsUseCase } from "./GetRecipeDetailsUseCase";
@@ -24,6 +25,9 @@ export const recipeUseCases = {
 		localStorageFavoriteRecipeRepository,
 	),
 	getFavoriteRecipes: new GetFavoriteRecipesUseCase(
+		localStorageFavoriteRecipeRepository,
+	),
+	getFavoriteRecipe: new GetFavoriteRecipeUseCase(
 		localStorageFavoriteRecipeRepository,
 	),
 	isFavoriteRecipe: new IsFavoriteRecipeUseCase(
