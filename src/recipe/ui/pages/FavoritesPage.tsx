@@ -11,15 +11,18 @@ export function FavoritesPage() {
 	const { favorites, removeFavorite } = useRecipeFavorites();
 	const navigate = useNavigate();
 
+	const navigateToDetails = (recipeId: string) =>
+		navigate({
+			to: "/recipe/$recipeId",
+			params: { recipeId },
+			viewTransition: { types: ["slide-right"] },
+		});
+
 	if (favorites.length === 0) {
 		return (
 			<div className="container mx-auto px-4 py-8 text-center">
-				<h2 className="text-2xl font-semibold mb-4">
-					You don't have any favorite recipes
-				</h2>
-				<p className="text-gray-500 mb-4">
-					Explore our recipes and mark your favorites to find them here
-				</p>
+				<h2 className="text-2xl font-semibold mb-4">You don't have any favorite recipes</h2>
+				<p className="text-gray-500 mb-4">Explore our recipes and mark your favorites to find them here</p>
 				<Button
 					variant="link"
 					className="w-full"
@@ -46,6 +49,7 @@ export function FavoritesPage() {
 						key={recipe.id}
 						recipe={recipe}
 						removeFavorite={removeFavorite}
+						navigateToDetails={() => navigateToDetails(recipe.id)}
 					/>
 				))}
 			</div>
