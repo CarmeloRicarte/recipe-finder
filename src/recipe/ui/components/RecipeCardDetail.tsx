@@ -1,11 +1,4 @@
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/core/ui/components/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/core/ui/components/card";
 import { Heart, HeartOff } from "lucide-react";
 import { sanitizeHTML } from "../../../core/ui/lib/utils";
 import type { Recipe } from "../../domain/models";
@@ -17,25 +10,17 @@ interface RecipeCardDetailProps {
 	toggleFavorite: () => void;
 }
 
-export function RecipeCardDetail({
-	recipe,
-	isFavorite,
-	toggleFavorite,
-}: RecipeCardDetailProps) {
+export function RecipeCardDetail({ recipe, isFavorite, toggleFavorite }: RecipeCardDetailProps) {
 	return (
 		<Card className="py-4">
 			<CardHeader>
 				<div className="flex items-center justify-between">
 					<CardTitle className="text-xl">{recipe.title}</CardTitle>
-					<button
-						type="button"
-						onClick={toggleFavorite}
-						className="p-2 hover:cursor-pointer"
-					>
+					<button type="button" onClick={toggleFavorite} className="p-2 hover:cursor-pointer">
 						{isFavorite(recipe.id) ? (
-							<Heart className="w-6 h-6 text-red-500 fill-current" />
+							<Heart data-testid="heart-icon" className="w-6 h-6 text-red-500 fill-current" />
 						) : (
-							<HeartOff className="w-6 h-6" />
+							<HeartOff data-testid="heart-off-icon" className="w-6 h-6" />
 						)}
 					</button>
 				</div>
@@ -48,11 +33,7 @@ export function RecipeCardDetail({
 			</CardHeader>
 			<CardContent>
 				<div className="space-y-6">
-					<img
-						src={recipe.image}
-						alt={recipe.title}
-						className="w-full h-64 object-cover rounded-lg"
-					/>
+					<img src={recipe.image} alt={recipe.title} className="w-full h-64 object-cover rounded-lg" />
 					<div>
 						<h3 className="text-lg font-semibold mb-2">Ingredients</h3>
 						<IngredientsList ingredients={recipe.extendedIngredients} />
