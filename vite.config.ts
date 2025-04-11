@@ -27,6 +27,9 @@ export default defineConfig({
 				"src/**/__tests__/*",
 				"src/App.tsx",
 				"src/core/ui/**/*.tsx",
+				"src/core/ui/**/*.ts",
+				"src/core/constants.ts",
+				"src//router.tsx",
 			],
 			thresholds: {
 				branches: 80,
