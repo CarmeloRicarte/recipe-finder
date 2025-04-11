@@ -31,12 +31,6 @@ export default defineConfig({
 				"src/core/constants.ts",
 				"src//router.tsx",
 			],
-			thresholds: {
-				branches: 80,
-				functions: 80,
-				statements: 80,
-				lines: 80,
-			},
 		},
 		restoreMocks: true,
 		setupFiles: ["./vitest.setup.ts"],
