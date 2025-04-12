@@ -17,21 +17,11 @@ const indexRoute = createRoute({
 const recipeDetailRoute = createRoute({
 	getParentRoute: () => rootRoute,
 	path: "/recipe/$recipeId",
-}).lazy(() =>
-	import("./recipe/ui/pages/RecipeDetailPage").then(
-		(r) => r.RecipeDetailPageRoute,
-	),
-);
+}).lazy(() => import("./recipe/ui/pages/RecipeDetailPage").then((r) => r.RecipeDetailPageRoute));
 
 const favoriteRecipesRoute = createRoute({
 	getParentRoute: () => rootRoute,
 	path: "/favorites",
-}).lazy(() =>
-	import("./recipe/ui/pages/FavoritesPage").then((r) => r.FavoritesPageRoute),
-);
+}).lazy(() => import("./recipe/ui/pages/FavoritesPage").then((r) => r.FavoritesPageRoute));
 
-export const routeTree = rootRoute.addChildren([
-	indexRoute,
-	recipeDetailRoute,
-	favoriteRecipesRoute,
-]);
+export const routeTree = rootRoute.addChildren([indexRoute, recipeDetailRoute, favoriteRecipesRoute]);

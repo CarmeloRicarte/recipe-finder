@@ -4,11 +4,7 @@
  */
 
 import { RECIPES_PER_PAGE } from "@/core/constants";
-import type {
-	Recipe,
-	RecipeSearchRandomResult,
-	RecipeSearchResult,
-} from "../../domain/models";
+import type { Recipe, RecipeSearchRandomResult, RecipeSearchResult } from "../../domain/models";
 
 const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY || "YOUR_API_KEY";
 const BASE_URL = "https://api.spoonacular.com";
@@ -26,14 +22,9 @@ export class SpoonacularApiClient {
 	 * @returns Promise with the parsed JSON response
 	 * @throws Error if the API request fails
 	 */
-	private async fetchFromApi<T>({
-		endpoint,
-		params = {},
-	}: SpoonacularApiOptions): Promise<T> {
+	private async fetchFromApi<T>({ endpoint, params = {} }: SpoonacularApiOptions): Promise<T> {
 		// Filter out undefined values from params
-		const filteredParams = Object.fromEntries(
-			Object.entries(params).filter(([_, value]) => value !== undefined),
-		);
+		const filteredParams = Object.fromEntries(Object.entries(params).filter(([_, value]) => value !== undefined));
 
 		const searchParams = new URLSearchParams({
 			...filteredParams,
@@ -48,9 +39,7 @@ export class SpoonacularApiClient {
 		});
 
 		if (!response.ok) {
-			throw new Error(
-				`API request failed with status ${response.status}: ${await response.text()}`,
-			);
+			throw new Error(`API request failed with status ${response.status}: ${await response.text()}`);
 		}
 
 		return response.json();
@@ -115,9 +104,7 @@ export class SpoonacularApiClient {
 	 * @param number - Optional number of random recipes to return (default: RECIPES_PER_PAGE)
 	 * @returns Promise with an array of random recipes
 	 */
-	async getRandomRecipes(
-		number = RECIPES_PER_PAGE,
-	): Promise<RecipeSearchRandomResult> {
+	async getRandomRecipes(number = RECIPES_PER_PAGE): Promise<RecipeSearchRandomResult> {
 		return this.fetchFromApi({
 			endpoint: "/recipes/random",
 			params: {

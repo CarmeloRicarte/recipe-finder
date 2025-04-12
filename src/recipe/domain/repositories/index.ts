@@ -1,8 +1,4 @@
-import type {
-	Recipe,
-	RecipeSearchFilters,
-	RecipeSearchResult,
-} from "../models";
+import type { Recipe, RecipeSearchFilters, RecipeSearchResult } from "../models";
 
 export interface RecipeRepository {
 	/**
@@ -11,10 +7,7 @@ export interface RecipeRepository {
 	 * @param page - Page number for pagination
 	 * @returns Promise containing search results
 	 */
-	searchRecipes(
-		filters: RecipeSearchFilters,
-		page: number,
-	): Promise<RecipeSearchResult>;
+	searchRecipes(filters: RecipeSearchFilters, page: number): Promise<RecipeSearchResult>;
 
 	/**
 	 * Retrieves a specific recipe by its unique identifier

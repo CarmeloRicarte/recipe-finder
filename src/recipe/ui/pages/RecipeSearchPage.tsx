@@ -3,11 +3,7 @@
  * Main page for searching and displaying recipes
  */
 
-import {
-	Alert,
-	AlertDescription,
-	AlertTitle,
-} from "@/core/ui/components/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/core/ui/components/alert";
 import { Spinner } from "@/core/ui/components/spinner";
 import { useNavigate } from "@tanstack/react-router";
 import { TriangleAlertIcon } from "lucide-react";
@@ -18,8 +14,7 @@ import { useRecipeSearch } from "../hooks/useRecipeSearch";
 
 export function RecipeSearchPage() {
 	const navigate = useNavigate();
-	const { recipes, isLoading, error, hasMore, searchRecipes, loadMore } =
-		useRecipeSearch();
+	const { recipes, isLoading, error, hasMore, searchRecipes, loadMore } = useRecipeSearch();
 	const observerTarget = useRef<HTMLDivElement>(null);
 
 	/**
@@ -72,11 +67,7 @@ export function RecipeSearchPage() {
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 				{recipes.map((recipe) => (
-					<RecipeCard
-						key={recipe.id}
-						recipe={recipe}
-						onViewDetails={handleViewDetails}
-					/>
+					<RecipeCard key={recipe.id} recipe={recipe} onViewDetails={handleViewDetails} />
 				))}
 			</div>
 

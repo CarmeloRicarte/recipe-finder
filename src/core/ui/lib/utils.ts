@@ -13,8 +13,5 @@ export function cn(...inputs: ClassValue[]) {
 export function sanitizeHTML(html: string) {
 	return html
 		.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, "")
-		.replace(
-			/<\/?(script|iframe|frame|object|embed|style|link|meta)[^>]*>/gim,
-			"",
-		);
+		.replace(/<\/?(script|iframe|frame|object|embed|style|link|meta)[^>]*>/gim, "");
 }

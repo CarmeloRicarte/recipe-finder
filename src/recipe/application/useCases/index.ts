@@ -18,21 +18,11 @@ export const recipeUseCases = {
 	searchRecipes: new SearchRecipesUseCase(spoonacularRecipeRepository),
 	getRecipeDetails: new GetRecipeDetailsUseCase(spoonacularRecipeRepository),
 	getRandomRecipes: new GetRandomRecipesUseCase(spoonacularRecipeRepository),
-	addFavoriteRecipe: new AddFavoriteRecipeUseCase(
-		localStorageFavoriteRecipeRepository,
-	),
-	removeFavoriteRecipe: new RemoveFavoriteRecipeUseCase(
-		localStorageFavoriteRecipeRepository,
-	),
-	getFavoriteRecipes: new GetFavoriteRecipesUseCase(
-		localStorageFavoriteRecipeRepository,
-	),
-	getFavoriteRecipe: new GetFavoriteRecipeUseCase(
-		localStorageFavoriteRecipeRepository,
-	),
-	isFavoriteRecipe: new IsFavoriteRecipeUseCase(
-		localStorageFavoriteRecipeRepository,
-	),
+	addFavoriteRecipe: new AddFavoriteRecipeUseCase(localStorageFavoriteRecipeRepository),
+	removeFavoriteRecipe: new RemoveFavoriteRecipeUseCase(localStorageFavoriteRecipeRepository),
+	getFavoriteRecipes: new GetFavoriteRecipesUseCase(localStorageFavoriteRecipeRepository),
+	getFavoriteRecipe: new GetFavoriteRecipeUseCase(localStorageFavoriteRecipeRepository),
+	isFavoriteRecipe: new IsFavoriteRecipeUseCase(localStorageFavoriteRecipeRepository),
 };
 
 // Export use case classes for testing or different implementations

@@ -29,8 +29,7 @@ export function useRecipeLoader(recipeId: string) {
 	 * @returns Promise containing the recipe data
 	 */
 	const getRecipeData = async (recipeId: string) => {
-		const isRecipeInFavorites =
-			recipeUseCases.isFavoriteRecipe.execute(recipeId);
+		const isRecipeInFavorites = recipeUseCases.isFavoriteRecipe.execute(recipeId);
 		if (await isRecipeInFavorites) {
 			return recipeUseCases.getFavoriteRecipe.execute(recipeId);
 		}

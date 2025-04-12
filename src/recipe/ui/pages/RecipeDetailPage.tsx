@@ -1,8 +1,4 @@
-import {
-	Alert,
-	AlertDescription,
-	AlertTitle,
-} from "@/core/ui/components/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/core/ui/components/alert";
 import { Spinner } from "@/core/ui/components/spinner";
 import { createLazyRoute, useParams } from "@tanstack/react-router";
 import { TriangleAlertIcon } from "lucide-react";
@@ -45,11 +41,7 @@ export function RecipeDetailPage() {
 
 	return (
 		<div className="container mx-auto px-4 py-4">
-			<RecipeCardDetail
-				recipe={recipe}
-				isFavorite={isFavorite}
-				toggleFavorite={toggleFavorite}
-			/>
+			<RecipeCardDetail recipe={recipe} isFavorite={isFavorite} toggleFavorite={toggleFavorite} />
 		</div>
 	);
 }

@@ -1,8 +1,5 @@
 import { mockRecipes } from "@/recipe/__mocks__/recipesMock";
-import type {
-	RecipeSearchFilters,
-	RecipeSearchResult,
-} from "@/recipe/domain/models";
+import type { RecipeSearchFilters, RecipeSearchResult } from "@/recipe/domain/models";
 import type { RecipeRepository } from "@/recipe/domain/repositories";
 import { SearchRecipesUseCase } from "../SearchRecipesUseCase";
 
@@ -23,10 +20,7 @@ describe("SearchRecipesUseCase", () => {
 
 		const result = await searchRecipesUseCase.execute(filters, page);
 
-		expect(mockRecipeRepository.searchRecipes).toHaveBeenCalledWith(
-			filters,
-			page,
-		);
+		expect(mockRecipeRepository.searchRecipes).toHaveBeenCalledWith(filters, page);
 		expect(result).toEqual({
 			results: mockRecipes,
 			totalResults: 2,
@@ -49,10 +43,7 @@ describe("SearchRecipesUseCase", () => {
 
 		const result = await searchRecipesUseCase.execute(filters, page);
 
-		expect(mockRecipeRepository.searchRecipes).toHaveBeenCalledWith(
-			filters,
-			page,
-		);
+		expect(mockRecipeRepository.searchRecipes).toHaveBeenCalledWith(filters, page);
 		expect(result).toEqual({
 			results: [],
 			totalResults: 0,

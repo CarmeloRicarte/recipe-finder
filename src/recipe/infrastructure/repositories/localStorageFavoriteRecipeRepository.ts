@@ -3,9 +3,7 @@ import type { FavoriteRecipeRepository } from "../../domain/repositories";
 
 const FAVORITES_KEY = "favoriteRecipes";
 
-export class LocalStorageFavoriteRecipeRepository
-	implements FavoriteRecipeRepository
-{
+export class LocalStorageFavoriteRecipeRepository implements FavoriteRecipeRepository {
 	private getFavorites(): Recipe[] {
 		const favorites = localStorage.getItem(FAVORITES_KEY);
 		return favorites ? JSON.parse(favorites) : [];
@@ -42,5 +40,4 @@ export class LocalStorageFavoriteRecipeRepository
 	}
 }
 
-export const localStorageFavoriteRecipeRepository =
-	new LocalStorageFavoriteRecipeRepository();
+export const localStorageFavoriteRecipeRepository = new LocalStorageFavoriteRecipeRepository();

@@ -7,9 +7,7 @@ import type { Recipe } from "../../domain/models";
 import type { FavoriteRecipeRepository } from "../../domain/repositories";
 
 export class GetFavoriteRecipeUseCase {
-	constructor(
-		private readonly favoriteRecipeRepository: FavoriteRecipeRepository,
-	) {}
+	constructor(private readonly favoriteRecipeRepository: FavoriteRecipeRepository) {}
 
 	/**
 	 * Execute the get favorite recipe use case

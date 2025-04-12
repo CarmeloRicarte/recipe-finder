@@ -18,18 +18,10 @@ const initialState: ThemeProviderState = {
 	setTheme: () => null,
 };
 
-export const ThemeProviderContext =
-	createContext<ThemeProviderState>(initialState);
+export const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
-export function ThemeProvider({
-	children,
-	defaultTheme = "system",
-	storageKey = "recipe-finder-ui-theme",
-	...props
-}: ThemeProviderProps) {
-	const [theme, setTheme] = useState<Theme>(
-		() => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-	);
+export function ThemeProvider({ children, defaultTheme = "system", storageKey = "recipe-finder-ui-theme", ...props }: ThemeProviderProps) {
+	const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme);
 
 	useEffect(() => {
 		const root = window.document.documentElement;
@@ -37,10 +29,7 @@ export function ThemeProvider({
 		root.classList.remove("light", "dark");
 
 		if (theme === "system") {
-			const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-				.matches
-				? "dark"
-				: "light";
+			const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
 			root.classList.add(systemTheme);
 			return;

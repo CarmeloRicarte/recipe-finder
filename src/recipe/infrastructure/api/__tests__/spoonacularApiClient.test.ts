@@ -23,9 +23,7 @@ describe("SpoonacularApiClient", () => {
 				ok: true,
 				json: () => Promise.resolve({ data: "test" }),
 			};
-			(fetch as unknown as ReturnType<typeof vi.fn>).mockResolvedValue(
-				mockResponse,
-			);
+			(fetch as unknown as ReturnType<typeof vi.fn>).mockResolvedValue(mockResponse);
 
 			// @ts-expect-error: Accessing private method for testing
 			const result = await apiClient.fetchFromApi({
@@ -47,9 +45,7 @@ describe("SpoonacularApiClient", () => {
 				ok: true,
 				json: () => Promise.resolve({}),
 			};
-			(fetch as unknown as ReturnType<typeof vi.fn>).mockResolvedValue(
-				mockResponse,
-			);
+			(fetch as unknown as ReturnType<typeof vi.fn>).mockResolvedValue(mockResponse);
 
 			// @ts-expect-error: Accessing private method for testing
 			await apiClient.fetchFromApi({
@@ -71,9 +67,7 @@ describe("SpoonacularApiClient", () => {
 				status: 404,
 				text: () => Promise.resolve("Not found"),
 			};
-			(fetch as unknown as ReturnType<typeof vi.fn>).mockResolvedValue(
-				mockResponse,
-			);
+			(fetch as unknown as ReturnType<typeof vi.fn>).mockResolvedValue(mockResponse);
 
 			await expect(
 				// @ts-expect-error: Accessing private method for testing
@@ -97,16 +91,7 @@ describe("SpoonacularApiClient", () => {
 				.spyOn(apiClient as any, "fetchFromApi")
 				.mockResolvedValue(mockSearchResult);
 
-			const result = await apiClient.searchRecipes(
-				"pasta",
-				["tomato", "cheese"],
-				"italian",
-				"vegetarian",
-				"main course",
-				30,
-				10,
-				20,
-			);
+			const result = await apiClient.searchRecipes("pasta", ["tomato", "cheese"], "italian", "vegetarian", "main course", 30, 10, 20);
 
 			expect(fetchSpy).toHaveBeenCalledWith({
 				endpoint: "/recipes/complexSearch",

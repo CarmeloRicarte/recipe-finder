@@ -28,9 +28,7 @@ export function useRecipeFavorites() {
 	 */
 	const removeFavorite = useCallback(async (recipeId: string) => {
 		await recipeUseCases.removeFavoriteRecipe.execute(recipeId);
-		setFavorites((currentFavorites) =>
-			currentFavorites.filter((recipe) => recipe.id !== recipeId),
-		);
+		setFavorites((currentFavorites) => currentFavorites.filter((recipe) => recipe.id !== recipeId));
 	}, []);
 
 	/**

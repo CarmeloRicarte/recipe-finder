@@ -1,5 +1,5 @@
-import { RemoveFavoriteRecipeUseCase } from "../RemoveFavoriteRecipeUseCase";
 import type { FavoriteRecipeRepository } from "@/recipe/domain/repositories";
+import { RemoveFavoriteRecipeUseCase } from "../RemoveFavoriteRecipeUseCase";
 
 describe("RemoveFavoriteRecipeUseCase", () => {
 	it("should remove a favorite recipe", async () => {
@@ -10,16 +10,12 @@ describe("RemoveFavoriteRecipeUseCase", () => {
 			getFavoriteRecipe: vi.fn(),
 			isFavoriteRecipe: vi.fn(),
 		};
-		const useCase = new RemoveFavoriteRecipeUseCase(
-			mockFavoriteRecipeRepository,
-		);
+		const useCase = new RemoveFavoriteRecipeUseCase(mockFavoriteRecipeRepository);
 		const recipeId = "recipe1";
 
 		await useCase.execute(recipeId);
 
-		expect(
-			mockFavoriteRecipeRepository.removeFavoriteRecipe,
-		).toHaveBeenCalledWith(recipeId);
+		expect(mockFavoriteRecipeRepository.removeFavoriteRecipe).toHaveBeenCalledWith(recipeId);
 	});
 
 	it("should handle errors when removing a favorite recipe", async () => {
@@ -30,9 +26,7 @@ describe("RemoveFavoriteRecipeUseCase", () => {
 			getFavoriteRecipe: vi.fn(),
 			isFavoriteRecipe: vi.fn(),
 		};
-		const useCase = new RemoveFavoriteRecipeUseCase(
-			mockFavoriteRecipeRepository,
-		);
+		const useCase = new RemoveFavoriteRecipeUseCase(mockFavoriteRecipeRepository);
 		const recipeId = "recipe1";
 
 		await expect(useCase.execute(recipeId)).rejects.toThrow("Error");

@@ -7,8 +7,7 @@ export const mockRecipes: Recipe[] = [
 		title: "Cucumber Mint Tea Sandwiches",
 		readyInMinutes: 45,
 		servings: 8,
-		sourceUrl:
-			"https://www.foodista.com/recipe/33CV8WS5/cucumber-mint-tea-sandwiches",
+		sourceUrl: "https://www.foodista.com/recipe/33CV8WS5/cucumber-mint-tea-sandwiches",
 		extendedIngredients: [
 			{
 				id: 18064,
@@ -93,8 +92,7 @@ export const mockRecipes: Recipe[] = [
 		title: "Chocolate Chip Peanut Butter Banana Cookies",
 		readyInMinutes: 45,
 		servings: 24,
-		sourceUrl:
-			"https://www.foodista.com/recipe/RZGVSKMQ/chocolate-chip-peanut-butter-banana-cookies",
+		sourceUrl: "https://www.foodista.com/recipe/RZGVSKMQ/chocolate-chip-peanut-butter-banana-cookies",
 		extendedIngredients: [
 			{
 				id: 18369,

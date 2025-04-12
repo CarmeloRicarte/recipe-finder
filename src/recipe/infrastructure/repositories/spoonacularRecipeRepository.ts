@@ -4,12 +4,7 @@
  */
 
 import { RECIPES_PER_PAGE } from "@/core/constants";
-import type {
-	Ingredient,
-	Recipe,
-	RecipeSearchFilters,
-	RecipeSearchResult,
-} from "../../domain/models";
+import type { Ingredient, Recipe, RecipeSearchFilters, RecipeSearchResult } from "../../domain/models";
 import type { RecipeRepository } from "../../domain/repositories";
 import { spoonacularApiClient } from "../api/spoonacularApiClient";
 
@@ -21,23 +16,12 @@ export class SpoonacularRecipeRepository implements RecipeRepository {
 	 * @returns Promise containing search results with recipes, pagination info and total count
 	 * @throws Error if the API request fails
 	 */
-	async searchRecipes(
-		filters: RecipeSearchFilters,
-		page: number,
-	): Promise<RecipeSearchResult> {
+	async searchRecipes(filters: RecipeSearchFilters, page: number): Promise<RecipeSearchResult> {
 		try {
 			const { query, ingredients, cuisine, diet, type, maxReadyTime } = filters;
 			const offset = page * RECIPES_PER_PAGE;
 
-			const response = await spoonacularApiClient.searchRecipes(
-				query,
-				ingredients,
-				cuisine,
-				diet,
-				type,
-				maxReadyTime,
-				offset,
-			);
+			const response = await spoonacularApiClient.searchRecipes(query, ingredients, cuisine, diet, type, maxReadyTime, offset);
 
 			return {
 				results: this.mapApiRecipesToDomainRecipes(response.results),
@@ -67,9 +51,7 @@ export class SpoonacularRecipeRepository implements RecipeRepository {
 			if (error instanceof Error) {
 				throw new Error(`Failed to get recipe with ID ${id}: ${error.message}`);
 			}
-			throw new Error(
-				`Failed to get recipe with ID ${id}: An unknown error occurred`,
-			);
+			throw new Error(`Failed to get recipe with ID ${id}: An unknown error occurred`);
 		}
 	}
 
@@ -87,9 +69,7 @@ export class SpoonacularRecipeRepository implements RecipeRepository {
 			if (error instanceof Error) {
 				throw new Error(`Failed to get random recipes: ${error.message}`);
 			}
-			throw new Error(
-				"Failed to get random recipes: An unknown error occurred",
-			);
+			throw new Error("Failed to get random recipes: An unknown error occurred");
 		}
 	}
 
@@ -150,9 +130,7 @@ export class SpoonacularRecipeRepository implements RecipeRepository {
 	 * @returns Complete URL for the ingredient image or undefined if no image
 	 */
 	private buildIngredientImageUrl(imageName?: string): string | undefined {
-		return imageName
-			? `https://spoonacular.com/cdn/ingredients_100x100/${imageName}`
-			: undefined;
+		return imageName ? `https://spoonacular.com/cdn/ingredients_100x100/${imageName}` : undefined;
 	}
 }
 // Create a singleton instance

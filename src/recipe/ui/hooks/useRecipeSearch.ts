@@ -27,9 +27,7 @@ export function useRecipeSearch() {
 			setRecipes(result.results);
 			setHasMore(result.totalResults > result.results.length);
 		} catch (err) {
-			setError(
-				err instanceof Error ? err.message : "Error when searching for recipes",
-			);
+			setError(err instanceof Error ? err.message : "Error when searching for recipes");
 			setRecipes([]);
 			setHasMore(false);
 		} finally {
@@ -44,17 +42,12 @@ export function useRecipeSearch() {
 		const nextPage = currentPage + 1;
 
 		try {
-			const result = await recipeUseCases.searchRecipes.execute(
-				currentFilters,
-				nextPage,
-			);
+			const result = await recipeUseCases.searchRecipes.execute(currentFilters, nextPage);
 			setRecipes((prev) => [...prev, ...result.results]);
 			setHasMore(result.totalResults > recipes.length + result.results.length);
 			setCurrentPage(nextPage);
 		} catch (err) {
-			setError(
-				err instanceof Error ? err.message : "Error loading more recipes",
-			);
+			setError(err instanceof Error ? err.message : "Error loading more recipes");
 		} finally {
 			setIsLoading(false);
 		}
@@ -64,13 +57,10 @@ export function useRecipeSearch() {
 		const loadInitialRecipes = async () => {
 			setIsLoading(true);
 			try {
-				const randomRecipes =
-					await recipeUseCases.getRandomRecipes.execute(RECIPES_PER_PAGE);
+				const randomRecipes = await recipeUseCases.getRandomRecipes.execute(RECIPES_PER_PAGE);
 				setRecipes(randomRecipes);
 			} catch (err) {
-				setError(
-					err instanceof Error ? err.message : "Error loading initial recipes",
-				);
+				setError(err instanceof Error ? err.message : "Error loading initial recipes");
 			} finally {
 				setIsLoading(false);
 			}

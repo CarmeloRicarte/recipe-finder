@@ -6,9 +6,7 @@
 import type { FavoriteRecipeRepository } from "../../domain/repositories";
 
 export class RemoveFavoriteRecipeUseCase {
-	constructor(
-		private readonly favoriteRecipeRepository: FavoriteRecipeRepository,
-	) {}
+	constructor(private readonly favoriteRecipeRepository: FavoriteRecipeRepository) {}
 
 	/**
 	 * Execute the remove favorite recipe use case
