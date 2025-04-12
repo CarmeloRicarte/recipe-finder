@@ -2,7 +2,7 @@ import { cn } from "@/core/ui/lib/utils";
 import { Link, useMatch } from "@tanstack/react-router";
 import { Heart, Search } from "lucide-react";
 
-export const RecipeNavigationManu = () => {
+export const RecipeNavigationMenu = () => {
 	const isSearchRouteActive = useMatch({ from: "/", shouldThrow: false });
 	const isFavoritesRouteActive = useMatch({
 		from: "/favorites",
