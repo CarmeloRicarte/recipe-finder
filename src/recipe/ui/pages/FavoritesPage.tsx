@@ -18,21 +18,18 @@ export function FavoritesPage() {
 			viewTransition: { types: ["slide-right"] },
 		});
 
+	const navigateToHome = () =>
+		navigate({
+			to: "/",
+			viewTransition: { types: ["slide-left"] },
+		});
+
 	if (favorites.length === 0) {
 		return (
 			<div className="container mx-auto px-4 py-8 text-center">
 				<h2 className="text-2xl font-semibold mb-4">You don't have any favorite recipes</h2>
 				<p className="text-gray-500 mb-4">Explore our recipes and mark your favorites to find them here</p>
-				<Button
-					variant="link"
-					className="w-full"
-					onClick={() =>
-						navigate({
-							to: "/",
-							viewTransition: { types: ["slide-left"] },
-						})
-					}
-				>
+				<Button variant="link" className="w-full" onClick={navigateToHome}>
 					Explore recipes
 				</Button>
 			</div>
