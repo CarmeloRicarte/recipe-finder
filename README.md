@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - Bun (v1.0.0 or higher): Runtime and package manager
-- Spoonacular API Key: Obten una clave gratuita en https://spoonacular.com/food-api
+- Spoonacular API Key: Obtain a free API key in https://spoonacular.com/food-api
 
 ## Environment Setup
 
