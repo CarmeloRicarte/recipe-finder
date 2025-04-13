@@ -3,6 +3,13 @@
 ## Prerequisites
 
 - Bun (v1.0.0 or higher): Runtime and package manager
+- Spoonacular API Key: Obten una clave gratuita en https://spoonacular.com/food-api
+
+## Environment Setup
+
+1. Create a .env file in the project root
+2. Add your API Key:
+   VITE_SPOONACULAR_API_KEY=your_key_here
 
 ## What is this application for?
 
@@ -17,6 +24,7 @@ This application allows you to search for recipes by entering ingredients or key
 ## Tools and Libraries Used
 
 - Vite (v6.2.0): Build tool
+- Spoonacular API: Provides recipe and ingredient data
 - React (v19.0.0): Frontend framework
 - @shadcn/ui: Component library
 - TailwindCSS (v4.1.3): Styling
@@ -27,11 +35,13 @@ This application allows you to search for recipes by entering ingredients or key
 ## Assumptions and Design Decisions
 
 - Using Vite for fast development experience
+- Spoonacular API as the main source of recipe data
+- Clean architecture for clear separation of concerns between business logic, specific features and UI components
 - TailwindCSS for utility-first styling
 - @shadcn/ui for reusable components
 - Vitest for its performance and modern features
 - Biome for code quality and formatting
-- Clean Architecture for modular and layered structure
+- Testing Library for DOM testing utilities
 
 ## Project Structure
 
