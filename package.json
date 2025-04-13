@@ -10,7 +10,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc -b && vite build",
+		"build": "tsc -b && vite build --mode production && cp ./dist/index.html ./dist/404.html",
 		"check": "biome check --write ./src",
 		"preview": "vite preview",
 		"test": "vitest",
