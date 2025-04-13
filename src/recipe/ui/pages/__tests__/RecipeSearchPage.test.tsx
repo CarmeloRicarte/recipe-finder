@@ -116,7 +116,7 @@ describe("RecipeSearchPage", () => {
 	});
 
 	it("calls loadMore when scrolling to bottom and has more recipes", () => {
-		const mockObserver = vi.fn((callback, options) => ({
+		const mockObserver = vi.fn((_callback, _options) => ({
 			root: null,
 			rootMargin: "0px",
 			thresholds: [0],
@@ -152,7 +152,7 @@ describe("RecipeSearchPage", () => {
 	});
 
 	it("does not call loadMore when scrolling to bottom but no more recipes", () => {
-		const mockObserver = vi.fn((callback, options) => ({
+		const mockObserver = vi.fn((_callback, _options) => ({
 			root: null,
 			rootMargin: "0px",
 			thresholds: [0],

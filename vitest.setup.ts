@@ -8,7 +8,7 @@ afterEach(() => {
 	cleanup();
 });
 
-const mockObserver = vi.fn((callback, options) => ({
+const mockObserver = vi.fn((_callback, _options) => ({
 	root: null,
 	rootMargin: "0px",
 	thresholds: [0],
