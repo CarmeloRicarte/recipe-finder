@@ -29,7 +29,7 @@ export default defineConfig({
 				"src/core/ui/**/*.tsx",
 				"src/core/ui/**/*.ts",
 				"src/core/constants.ts",
-				"src//router.tsx",
+				"src/router.tsx",
 			],
 		},
 		restoreMocks: true,
