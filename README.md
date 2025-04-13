@@ -1,54 +1,51 @@
-# React + TypeScript + Vite
+# Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Prerequisites
 
-Currently, two official plugins are available:
+- Bun (v1.0.0 or higher): Runtime and package manager
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What is this application for?
 
-## Expanding the ESLint configuration
+This application allows you to search for recipes by entering ingredients or keywords. You can view a list of recipes with basic details (name, short description and image), click on a recipe to see detailed information (ingredients, instructions and preparation time), and save your favorite recipes in a local list for easy access.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to Set Up and Run the Application
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone the repository
+2. Install dependencies: `bun install`
+3. Start development server: `bun run dev`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tools and Libraries Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Vite (v6.2.0): Build tool
+- React (v19.0.0): Frontend framework
+- @shadcn/ui: Component library
+- TailwindCSS (v4.1.3): Styling
+- Vitest (v3.1.1): Testing framework
+- Biome (v1.9.4): Code formatting and linting
+- Testing Library: Testing utilities
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Assumptions and Design Decisions
+
+- Using Vite for fast development experience
+- TailwindCSS for utility-first styling
+- @shadcn/ui for reusable components
+- Vitest for its performance and modern features
+- Biome for code quality and formatting
+- Clean Architecture for modular and layered structure
+
+## Project Structure
+
+- src/
+  - core/: Core application logic and utilities
+  - recipe/: Recipe-related features
+    - application/: Application layer
+    - domain/: Domain models
+    - infrastructure/: External integrations
+    - ui/: UI components
+  - assets/: Static assets
+
+## Testing
+
+Run tests: `bun run test`
+Run tests with UI: `bun run test:ui`
+Generate coverage report: `bun run coverage`
