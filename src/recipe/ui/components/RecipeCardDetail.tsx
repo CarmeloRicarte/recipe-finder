@@ -33,9 +33,9 @@ export function RecipeCardDetail({ recipe, isFavorite, toggleFavorite }: RecipeC
 			</CardHeader>
 			<CardContent>
 				<div className="space-y-6">
-					<img src={recipe.image} alt={recipe.title} className="w-full h-64 object-cover rounded-lg" />
+					<img src={recipe.image} alt={recipe.title} className="w-full h-64 object-cover rounded-lg" loading="lazy" />
 					<div>
-						<h3 className="text-lg font-semibold mb-2">Ingredients</h3>
+						<h2 className="text-lg font-semibold mb-2">Ingredients</h2>
 						<IngredientsList ingredients={recipe.extendedIngredients} />
 					</div>
 					<div>

@@ -27,7 +27,14 @@ export function RecipeSearch({ onSearch, isLoading = false }: RecipeSearchProps)
 			<div className="flex gap-2">
 				<div className="relative flex-grow">
 					<Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-					<Input type="search" placeholder="Search recipes..." value={query} onChange={(e) => setQuery(e.target.value)} className="pl-10" />
+					<Input
+						type="search"
+						placeholder="Search recipes..."
+						name="search-recipes-input"
+						value={query}
+						onChange={(e) => setQuery(e.target.value)}
+						className="pl-10"
+					/>
 				</div>
 				<Button type="submit" disabled={isLoading || !query}>
 					{isLoading ? "Searching..." : "Search"}
