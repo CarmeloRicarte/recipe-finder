@@ -17,10 +17,10 @@ export function RecipeCard({ recipe, onViewDetails }: RecipeCardProps) {
 	return (
 		<Card className="flex flex-col h-full hover:shadow-lg transition-shadow">
 			<CardHeader className="p-0">
-				<img src={recipe.image} alt={recipe.title} className="w-full h-48 object-cover rounded-t-lg" loading="lazy" />
+				<img src={recipe.image} alt={recipe.title} className="w-full h-48 object-cover rounded-t-lg" />
 			</CardHeader>
 			<CardContent className="flex-grow p-4">
-				<h3 className="text-lg font-semibold mb-2 line-clamp-2">{recipe.title}</h3>
+				<h2 className="text-lg font-semibold mb-2 line-clamp-2">{recipe.title}</h2>
 				<div className="flex items-center gap-4 text-sm text-muted-foreground">
 					<div className="flex items-center gap-1">
 						<Clock className="w-4 h-4" />
