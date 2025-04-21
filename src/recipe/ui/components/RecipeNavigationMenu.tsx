@@ -9,7 +9,7 @@ export const RecipeNavigationMenu = () => {
 		shouldThrow: false,
 	});
 	return (
-		<div className="container mx-auto py-2 space-y-8">
+		<nav className="container mx-auto py-2 space-y-8">
 			<div className="flex space-x-8">
 				<Link
 					to="/"
@@ -36,6 +36,6 @@ export const RecipeNavigationMenu = () => {
 					<span>Favorites</span>
 				</Link>
 			</div>
-		</div>
+		</nav>
 	);
 };
